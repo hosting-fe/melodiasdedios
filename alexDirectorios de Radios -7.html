@@ -1,0 +1,302 @@
+<!-- MEGA PLAY - CLON PARA BLOGGER / AUTÓNOMO -->
+<div id="mpBloggerClone">
+<style>
+#mpBloggerClone{--primary:#7575c2;--dark:#151525;--bg:#f4f4f4;--text:#222;--white:#fff;--player:#050505;font-family:Arial,Helvetica,sans-serif;color:var(--text);box-sizing:border-box}
+#mpBloggerClone *{box-sizing:border-box}
+#mpBloggerClone .mp-header{position:relative;background:linear-gradient(135deg,#7575c2,#57579f);color:#fff;min-height:76px;display:flex;align-items:center;justify-content:space-between;padding:12px 22px;box-shadow:0 5px 18px rgba(0,0,0,.2);z-index:20}
+#mpBloggerClone .mp-brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:21px}
+#mpBloggerClone .mp-brand-icon{width:46px;height:46px;border-radius:12px;background:#fff;color:var(--primary);display:grid;place-items:center;font-size:23px}
+#mpBloggerClone .mp-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+#mpBloggerClone button,#mpBloggerClone input{font:inherit}
+#mpBloggerClone .mp-head-btn{border:0;background:#fff;color:var(--primary);padding:10px 14px;border-radius:13px;font-weight:800;cursor:pointer}
+#mpBloggerClone .mp-head-btn:hover{filter:brightness(.96);transform:translateY(-1px)}
+#mpBloggerClone .mp-shell{max-width:1180px;margin:14px auto 155px;padding:0 12px;display:grid;grid-template-columns:285px minmax(0,1fr);gap:12px}
+#mpBloggerClone .mp-sidebar{background:#fff;border:10px solid var(--primary);border-radius:10px;overflow:hidden;position:sticky;top:10px;max-height:calc(100vh - 25px);overflow-y:auto}
+#mpBloggerClone .mp-side-title{background:var(--primary);color:#fff;margin:0;padding:13px;text-align:center;font-weight:900}
+#mpBloggerClone .mp-region-title{background:var(--primary);color:#fff;font-size:12px;font-weight:900;text-transform:uppercase;padding:8px 15px}
+#mpBloggerClone .mp-region{list-style:none;margin:0;padding:0}
+#mpBloggerClone .mp-region li{border-bottom:1px solid #e5e5e5}
+#mpBloggerClone .mp-region button{width:100%;border:0;background:#fff;text-align:left;padding:11px 15px;color:#333;cursor:pointer;font-weight:700}
+#mpBloggerClone .mp-region button:hover,#mpBloggerClone .mp-region button.active{background:var(--primary);color:#fff}
+#mpBloggerClone .mp-main{min-width:0}
+#mpBloggerClone .mp-hero{height:300px;border-radius:9px;overflow:hidden;background:linear-gradient(135deg,#191927,#7575c2);position:relative;box-shadow:0 5px 16px rgba(0,0,0,.16);display:grid;place-items:center}
+#mpBloggerClone .mp-hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(255,255,255,.25),transparent 45%)}
+#mpBloggerClone .mp-hero-content{position:relative;text-align:center;color:#fff;padding:20px}
+#mpBloggerClone .mp-hero h1{font-size:42px;margin:0 0 8px;font-weight:900;letter-spacing:1px}
+#mpBloggerClone .mp-hero p{margin:0;font-size:15px;opacity:.9}
+#mpBloggerClone .mp-eq{display:flex;align-items:end;justify-content:center;gap:5px;height:45px;margin-top:22px}
+#mpBloggerClone .mp-eq i{display:block;width:7px;background:#fff;border-radius:3px 3px 0 0;transform:scaleY(.2);transition:transform .2s}
+#mpBloggerClone .mp-hero.isPlaying .mp-eq i{animation:mpEq .75s ease-in-out infinite alternate}
+#mpBloggerClone .mp-eq i:nth-child(1){height:18px;animation-delay:.1s}
+#mpBloggerClone .mp-eq i:nth-child(2){height:35px;animation-delay:.3s}
+#mpBloggerClone .mp-eq i:nth-child(3){height:25px;animation-delay:.15s}
+#mpBloggerClone .mp-eq i:nth-child(4){height:42px;animation-delay:.4s}
+#mpBloggerClone .mp-eq i:nth-child(5){height:28px;animation-delay:.2s}
+#mpBloggerClone .mp-eq i:nth-child(6){height:38px;animation-delay:.5s}
+#mpBloggerClone .mp-eq i:nth-child(7){height:21px;animation-delay:.25s}
+@keyframes mpEq{to{transform:scaleY(1)}}
+#mpBloggerClone .mp-featured{background:#fff;border:1px solid #ddd;border-radius:12px;margin:14px 0;padding:12px;overflow:hidden}
+#mpBloggerClone .mp-featured-title{font-size:18px;font-weight:900;margin-bottom:10px;display:flex;gap:8px;align-items:center}
+#mpBloggerClone .mp-live{background:var(--primary);color:#fff;border-radius:999px;padding:4px 9px;font-size:10px}
+#mpBloggerClone .mp-featured-list{display:flex;gap:10px;overflow-x:auto;padding-bottom:3px}
+#mpBloggerClone .mp-featured-item{width:82px;height:65px;flex:0 0 auto;border-radius:8px;overflow:hidden;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+#mpBloggerClone .mp-featured-item img{width:100%;height:100%;object-fit:cover}
+#mpBloggerClone .mp-grid-title{display:flex;justify-content:space-between;align-items:center;margin:10px 0}
+#mpBloggerClone .mp-grid-title h2{font-size:20px;margin:0;font-weight:900}
+#mpBloggerClone .mp-grid-title span{font-size:13px;color:#666}
+#mpBloggerClone .mp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
+#mpBloggerClone .mp-card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e5e5e5;box-shadow:0 8px 22px rgba(0,0,0,.08);transition:.2s}
+#mpBloggerClone .mp-card:hover{transform:translateY(-3px);box-shadow:0 13px 28px rgba(0,0,0,.14)}
+#mpBloggerClone .mp-image{aspect-ratio:1/1;position:relative;background:#eee;overflow:hidden}
+#mpBloggerClone .mp-image img{width:100%;height:100%;object-fit:cover;display:block}
+#mpBloggerClone .mp-overlay{position:absolute;inset:0;background:rgba(0,0,0,.3);display:grid;place-items:center;opacity:0;transition:.2s;cursor:pointer}
+#mpBloggerClone .mp-card:hover .mp-overlay{opacity:1}
+#mpBloggerClone .mp-play{width:58px;height:58px;border-radius:50%;background:#fff;color:var(--primary);display:grid;place-items:center;font-size:22px}
+#mpBloggerClone .mp-card-actions{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #eee}
+#mpBloggerClone .mp-card-actions button{border:0;background:#fff;color:var(--primary);height:35px;cursor:pointer;border-right:1px solid #eee}
+#mpBloggerClone .mp-card-actions button:hover{background:var(--primary);color:#fff}
+#mpBloggerClone .mp-card-name{background:var(--dark);color:#fff;padding:8px 10px 4px;font-size:12px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#mpBloggerClone .mp-location{padding:6px;color:#666;text-align:center;font-size:12px;font-weight:700}
+#mpBloggerClone .mp-player{position:fixed;left:0;right:0;bottom:0;background:linear-gradient(135deg,#050505,#171717);color:#fff;border-top:1px solid rgba(255,255,255,.15);box-shadow:0 -18px 48px rgba(0,0,0,.35);z-index:999999;display:none}
+#mpBloggerClone .mp-player.show{display:block}
+#mpBloggerClone .mp-player-inner{max-width:1220px;height:92px;margin:auto;padding:10px 18px;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(240px,.8fr);gap:20px;align-items:center}
+#mpBloggerClone .mp-now{display:flex;align-items:center;gap:12px;min-width:0;cursor:pointer}
+#mpBloggerClone .mp-cover{width:68px;height:68px;border-radius:16px;object-fit:cover;background:#fff;padding:3px;flex:0 0 auto}
+#mpBloggerClone .mp-nowtext{min-width:0}
+#mpBloggerClone .mp-nowtext strong,#mpBloggerClone .mp-nowtext small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#mpBloggerClone .mp-nowtext strong{font-size:16px}
+#mpBloggerClone .mp-nowtext small{font-size:12px;opacity:.7;margin-top:5px}
+#mpBloggerClone .mp-controls{display:flex;align-items:center;gap:10px}
+#mpBloggerClone .mp-control{border:0;background:rgba(255,255,255,.12);color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:16px}
+#mpBloggerClone .mp-mainplay{width:58px;height:58px;background:#cec5c5;color:#050505;font-size:24px}
+#mpBloggerClone .mp-volume{display:flex;align-items:center;gap:10px}
+#mpBloggerClone .mp-volume input{width:180px;accent-color:#fff;cursor:pointer}
+#mpBloggerClone .mp-add{margin:20px 0;padding:18px;background:#fff;border:1px solid #ddd;border-radius:12px}
+#mpBloggerClone .mp-add h3{margin:0 0 12px}
+#mpBloggerClone .mp-form{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#mpBloggerClone .mp-form input{padding:10px;border:1px solid #ccc;border-radius:8px;width:100%}
+#mpBloggerClone .mp-form .full{grid-column:1/-1}
+#mpBloggerClone .mp-save{background:var(--primary);color:#fff;border:0;border-radius:8px;padding:11px;font-weight:900;cursor:pointer}
+#mpBloggerClone .mp-msg{font-size:12px;margin-top:8px;color:#666}
+@media(max-width:900px){
+#mpBloggerClone .mp-header{align-items:flex-start;gap:10px;flex-direction:column}
+#mpBloggerClone .mp-shell{grid-template-columns:1fr;margin-bottom:125px}
+#mpBloggerClone .mp-sidebar{position:relative;top:auto;max-height:300px}
+#mpBloggerClone .mp-hero{height:245px}
+#mpBloggerClone .mp-hero h1{font-size:29px}
+#mpBloggerClone .mp-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
+#mpBloggerClone .mp-player-inner{height:86px;grid-template-columns:minmax(0,1fr) auto;padding:8px 10px;gap:8px}
+#mpBloggerClone .mp-volume{display:none}
+#mpBloggerClone .mp-cover{width:58px;height:58px}
+#mpBloggerClone .mp-nowtext strong{font-size:13px}
+#mpBloggerClone .mp-nowtext small{font-size:10px}
+#mpBloggerClone .mp-control{width:35px;height:35px}
+#mpBloggerClone .mp-mainplay{width:52px;height:52px}
+#mpBloggerClone .mp-form{grid-template-columns:1fr}
+#mpBloggerClone .mp-form .full{grid-column:auto}
+}
+</style>
+
+<div class="mp-header">
+  <div class="mp-brand"><div class="mp-brand-icon">♫</div><div>MEGA PLAY<br><small style="font-size:10px;opacity:.8">DIRECTORIO DE RADIOS</small></div></div>
+  <div class="mp-actions">
+    <button class="mp-head-btn" onclick="document.getElementById('mpAddBox').scrollIntoView({behavior:'smooth'})">＋ Agregar radio</button>
+  </div>
+</div>
+
+<div class="mp-shell">
+  <aside class="mp-sidebar">
+    <div class="mp-side-title">RADIOS POR CATEGORÍA</div>
+    <div class="mp-region-title">Filtros</div>
+    <ul class="mp-region">
+      <li><button class="active" onclick="mpFilter('TODAS',this)">Todas las radios <b style="float:right" id="mpTotalAll">8</b></button></li>
+      <li><button onclick="mpFilter('PERÚ',this)">Perú <b style="float:right">7</b></button></li>
+      <li><button onclick="mpFilter('CRISTIANAS',this)">Cristianas <b style="float:right">1</b></button></li>
+      <li><button onclick="mpFilter('PERSONAL',this)">Mis radios <b style="float:right" id="mpCount">0</b></button></li>
+    </ul>
+  </aside>
+
+  <main class="mp-main">
+    <section class="mp-hero" id="mpHeroSection">
+      <div class="mp-hero-content">
+        <h1>MEGA PLAY</h1><p>Expande tus ideas para Radio y TV</p>
+        <div class="mp-eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+    </section>
+
+    <section class="mp-featured">
+      <div class="mp-featured-title"><span class="mp-live">EN VIVO</span> Radios destacadas</div>
+      <div class="mp-featured-list" id="mpFeatured"></div>
+    </section>
+
+    <div class="mp-grid-title"><h2>Directorio de radios</h2><span id="mpTotal"></span></div>
+    <div class="mp-grid" id="mpGrid"></div>
+
+    <section class="mp-add" id="mpAddBox">
+      <h3>Registrar mi radio</h3>
+      <div class="mp-form">
+        <input id="mpName" placeholder="Nombre de la radio">
+        <input id="mpCountry" placeholder="País o Categoría (ej: CRISTIANAS)" value="PERÚ">
+        <input id="mpLogo" class="full" placeholder="URL del logo">
+        <input id="mpStream" class="full" placeholder="URL del streaming (https://...)">
+        <button class="mp-save full" onclick="mpAddRadio()">GUARDAR RADIO</button>
+      </div>
+      <div class="mp-msg" id="mpMsg">Las radios agregadas se guardan en este navegador.</div>
+    </section>
+  </main>
+</div>
+
+<div class="mp-player" id="mpPlayer">
+  <div class="mp-player-inner">
+    <div class="mp-now" onclick="mpOpenCurrent()">
+      <img id="mpCover" class="mp-cover" src="" alt="">
+      <div class="mp-nowtext"><strong id="mpTitle">Selecciona una radio</strong><small id="mpStatus">Detenido</small></div>
+    </div>
+    <div class="mp-controls">
+      <button class="mp-control" onclick="mpStop()" title="Detener">■</button>
+      <button class="mp-control mp-mainplay" id="mpPlayBtn" onclick="mpToggle()" title="Play/Pausa">▶</button>
+    </div>
+    <div class="mp-volume">🔊 <input id="mpVolume" type="range" min="0" max="1" step=".01" value=".8" oninput="mpAudio.volume=this.value"></div>
+  </div>
+</div>
+
+<audio id="mpAudio" preload="none"></audio>
+
+<script>
+(function(){
+const defaults=[
+  ["RADIO FIESTA TACNA", "PERÚ", "https://radios.megaplay-panel.pro/uploads/radios/1784915573_170215.jpg", "https://radios03.audiostreaming.ar/9078/stream", "mp3"], 
+  ["RADIO AMAZONICA", "PERÚ", "https://radios.megaplay-panel.pro/uploads/radios/1778148727_Diseño%20sin%20título(19).png", "https://rr5200.globalhost1.com/8160/stream", "aac"], 
+  ["Jl Radio", "PERÚ", "https://radios.megaplay-panel.pro/uploads/radios/1774388233_8296.png", "https://live.nexostreaming.com/8132/stream", "shoutcast2"], 
+  ["Radio Bacan Tv", "PERÚ", "https://radios.megaplay-panel.pro/uploads/radios/1774381888_4294.png", "https://radio.piuraserverslive.com/8288/stream", "shoutcast2"], 
+  ["RADIO RITMO", "PERÚ", "https://radios.megaplay-panel.pro/uploads/radios/1774313264_appicon.png", "https://radio.piuraserverslive.com/8298/stream", "mp3"], 
+  ["Radio Sound Latina", "PERÚ", "https://radios.megaplay-panel.pro/uploads/radios/1774386268_8257.png", "https://radio.piuraserverslive.com/8288/stream", "shoutcast2"], 
+  ["RADIO DEMO", "PERÚ", "https://radios.megaplay-panel.pro/uploads/radios/1774301813_DJ-WILMER-PNG-ORIGINAL%20%20%20512.png", "https://radio.piuraserverslive.com/8022/stream", "mp3"],
+  // Ejemplo de radio cristiana agregada por defecto (puedes cambiar la URL del stream si lo deseas)
+  ["Radio Cristiana Ejemplo", "CRISTIANAS", "https://dummyimage.com/500x500/7575c2/ffffff&text=CRISTIANA", "https://radio.piuraserverslive.com/8022/stream", "mp3"]
+];
+
+let personal=JSON.parse(localStorage.getItem('mp_blogger_radios')||'[]');
+let all=[...defaults,...personal];
+let current=null;
+window.mpAudio=document.getElementById('mpAudio');
+
+function esc(v){return String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+
+function setPlayingState(isPlaying){
+  const hero = document.getElementById('mpHeroSection');
+  if(isPlaying) {
+    hero.classList.add('isPlaying');
+  } else {
+    hero.classList.remove('isPlaying');
+  }
+}
+
+function render(filter='TODAS'){
+ all=[...defaults,...personal];
+ let data=filter==='PERSONAL'?personal:(filter==='TODAS'?all:all.filter(r=>r[1].toUpperCase()===filter));
+ document.getElementById('mpTotal').textContent=data.length+' radios';
+ document.getElementById('mpTotalAll').textContent=all.length;
+ document.getElementById('mpGrid').innerHTML=data.map((r,i)=>`
+ <article class="mp-card">
+  <div class="mp-image"><img src="${esc(r[2])}" alt="${esc(r[0])}" onerror="this.src='https://dummyimage.com/500x500/7575c2/ffffff&text=RADIO'">
+   <div class="mp-overlay" onclick="mpLoad(${JSON.stringify(r).replace(/"/g, '&quot;')})"><div class="mp-play">▶</div></div>
+  </div>
+  <div class="mp-card-actions"><button onclick="mpLoad(${JSON.stringify(r).replace(/"/g, '&quot;')})">▶ Escuchar</button><button onclick="mpInfo(${JSON.stringify(r).replace(/"/g, '&quot;')})">ⓘ Info</button></div>
+  <div class="mp-card-name" title="${esc(r[0])}">${esc(r[0])}</div><div class="mp-location">📍 ${esc(r[1])}</div>
+ </article>`).join('');
+}
+
+window.mpFilter=function(filter,el){
+  document.querySelectorAll('#mpBloggerClone .mp-region button').forEach(x=>x.classList.remove('active'));
+  el.classList.add('active');
+  render(filter);
+};
+
+window.mpLoad=function(r){
+ current=r; 
+ mpAudio.src=r[3]; 
+ mpAudio.volume=Number(document.getElementById('mpVolume').value)||.8;
+ document.getElementById('mpCover').src=r[2];
+ document.getElementById('mpTitle').textContent=r[0];
+ document.getElementById('mpStatus').textContent='Conectando...';
+ document.getElementById('mpPlayer').classList.add('show');
+ 
+ mpAudio.play().then(()=>{
+   document.getElementById('mpStatus').textContent='EN VIVO · '+r[4].toUpperCase();
+   document.getElementById('mpPlayBtn').textContent='❚❚';
+   setPlayingState(true);
+ }).catch((e)=>{
+   document.getElementById('mpStatus').textContent='Error de reproducción (Bloqueo HTTPS/CORS)';
+   document.getElementById('mpPlayBtn').textContent='▶';
+   setPlayingState(false);
+ });
+};
+
+window.mpToggle=function(){
+ if(!current) return;
+ if(mpAudio.paused){
+   mpAudio.play().then(()=>{
+     document.getElementById('mpStatus').textContent='EN VIVO';
+     document.getElementById('mpPlayBtn').textContent='❚❚';
+     setPlayingState(true);
+   }).catch(()=>{
+     alert('El navegador bloqueó la reproducción. Asegúrate de que el enlace de streaming comience con https:// o permita reproducción web.');
+   });
+ } else {
+   mpAudio.pause();
+   document.getElementById('mpStatus').textContent='Pausado';
+   document.getElementById('mpPlayBtn').textContent='▶';
+   setPlayingState(false);
+ }
+};
+
+window.mpStop=function(){
+ mpAudio.pause();
+ mpAudio.removeAttribute('src');
+ mpAudio.load();
+ document.getElementById('mpStatus').textContent='Detenido';
+ document.getElementById('mpPlayBtn').textContent='▶';
+ setPlayingState(false);
+};
+
+window.mpInfo=function(r){
+ alert('Radio: '+r[0]+'\nCategoría/País: '+r[1]+'\nFormato: '+r[4]+'\n\nStream:\n'+r[3]);
+};
+
+window.mpOpenCurrent=function(){
+ if(current) mpToggle();
+};
+
+window.mpAddRadio=function(){
+ const n=document.getElementById('mpName').value.trim();
+ const c=document.getElementById('mpCountry').value.trim().toUpperCase()||'OTRO';
+ const l=document.getElementById('mpLogo').value.trim();
+ const u=document.getElementById('mpStream').value.trim();
+ 
+ if(!n||!u){
+   document.getElementById('mpMsg').textContent='Escribe al menos el nombre y la URL del streaming.';
+   return;
+ }
+ personal.push([n,c,l||'https://dummyimage.com/500x500/7575c2/ffffff&text=RADIO',u,'mp3']);
+ localStorage.setItem('mp_blogger_radios',JSON.stringify(personal));
+ ['mpName','mpLogo','mpStream'].forEach(id=>document.getElementById(id).value='');
+ document.getElementById('mpCount').textContent=personal.length;
+ document.getElementById('mpMsg').textContent='Radio guardada correctamente en este navegador.';
+ render();
+};
+
+mpAudio.addEventListener('error',()=>{
+ if(current) {
+   document.getElementById('mpStatus').textContent='No se pudo conectar al stream (CORS/HTTP)';
+   setPlayingState(false);
+ }
+});
+
+document.getElementById('mpCount').textContent=personal.length;
+const featured=[...defaults.slice(0,6),...personal.slice(0,4)];
+document.getElementById('mpFeatured').innerHTML=featured.map(r=>`<div class="mp-featured-item" onclick="mpLoad(${JSON.stringify(r).replace(/"/g, '&quot;')})"><img src="${esc(r[2])}" alt="${esc(r[0])}"></div>`).join('');
+render();
+})();
+</script>
+</div>
